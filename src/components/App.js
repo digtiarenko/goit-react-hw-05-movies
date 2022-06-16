@@ -4,6 +4,8 @@ import { SharedLayout } from './SharedLayout';
 import { HomePage } from '../pages/HomePage';
 import { MoviesPage } from '../pages/MoviesPage';
 import { MovieDetailsPage } from '../pages/MovieDetailsPage';
+import { Cast } from '../pages/Cast';
+import { Reviews } from '../pages/Reviews';
 
 export const App = () => {
   return (
@@ -12,8 +14,8 @@ export const App = () => {
         <Route index element={<HomePage />} />
         <Route path="movies" element={<MoviesPage />} />
         <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-          {/* <Route path="cast" element={<Casts />} />
-          <Route path="reviews" element={<Reviews />} /> */}
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
     </Routes>
