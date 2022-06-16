@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { fetchBySearch } from '../../Services/fetchMethods';
 
 import styles from './MoviesPage.module.css';
 
 function MoviesPage() {
-  // const [query, setQuery] = useState('');
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line
+  const [query, setQuery] = useState(location?.search ?? '');
   const [searchValue, setSearchValue] = useState('');
   const [movies, setMovies] = useState([]);
 
   const handleChange = event => {
+    console.log(event.target.value);
     setSearchValue(event.target.value);
   };
+
   const handleSubmit = event => {
     event.preventDefault();
-    fetchBySearch(searchValue).then(movies => setMovies(movies));
+    setQuery(searchValue);
+    setSearchParams(searchValue);
   };
+
+  useEffect(() => {
+    if (query === '') {
+      return;
+    }
+    fetchBySearch(query).then(movies => setMovies(movies));
+  }, [query]);
 
   return (
     <>
@@ -39,7 +51,9 @@ function MoviesPage() {
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${movie.id}`}>{movie.title || movie.name}</Link>
+              <Link to={`${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>

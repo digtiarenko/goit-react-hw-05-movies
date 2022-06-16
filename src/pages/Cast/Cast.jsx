@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCredits } from '../../Services/fetchMethods';
 import defaultPic from './default.jpg';
-// import s from './Cast.module.css';
+import styles from './Cast.module.css';
 
 export function Cast() {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -16,10 +16,9 @@ export function Cast() {
   return (
     <div>
       {casts && (
-        <ul className={null}>
+        <ul className={styles.castList}>
           {casts.map(cast => (
             <li key={cast.id} className={null}>
-              <p className={null}>{cast.name}</p>
               <img
                 src={
                   cast.profile_path
@@ -30,6 +29,7 @@ export function Cast() {
                 width="100"
                 height="150"
               />
+              <p className={null}>{cast.name}</p>
             </li>
           ))}
         </ul>

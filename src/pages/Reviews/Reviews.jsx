@@ -14,7 +14,10 @@ export function Reviews() {
       {reviews.length > 0 ? (
         <ul>
           {reviews.map(review => (
-            <li key={review.id}>{review.content}</li>
+            <li key={review.id}>
+              <h4>AUTHOR: {review.author_details.username}</h4>
+              <p>{review.content}</p>
+            </li>
           ))}
         </ul>
       ) : (
