@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/HomePage.344ef66f.chunk.css","mappings":"AAAA,sBAGE,eAAgB,CAFhB,eAAgB,CAChB,oBAEF","sources":["pages/HomePage/HomePage.module.css"],"sourcesContent":[".item {\n  list-style: none;\n  text-decoration: none;\n  font-weight: 500;\n}\n"],"names":[],"sourceRoot":""}
