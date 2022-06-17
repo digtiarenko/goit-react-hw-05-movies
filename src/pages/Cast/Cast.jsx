@@ -4,7 +4,7 @@ import { fetchCredits } from '../../Services/fetchMethods';
 import defaultPic from './default.jpg';
 import styles from './Cast.module.css';
 
-export function Cast() {
+function Cast() {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
   const { movieId } = useParams();
   const [casts, setCast] = useState([]);
@@ -38,3 +38,4 @@ export function Cast() {
     </div>
   );
 }
+export default Cast;

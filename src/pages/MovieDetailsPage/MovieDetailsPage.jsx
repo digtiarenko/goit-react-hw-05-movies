@@ -25,7 +25,6 @@ function MovieDetailsPage() {
   }, [state?.from, from]);
 
   const onGoBack = () => {
-    console.log('go back');
     navigate(from);
   };
 
@@ -77,4 +76,4 @@ function MovieDetailsPage() {
   );
 }
 
-export { MovieDetailsPage };
+export default MovieDetailsPage;

@@ -12,7 +12,6 @@ function MoviesPage() {
   const [movies, setMovies] = useState([]);
 
   const handleChange = event => {
-    console.log(event.target.value);
     setSearchValue(event.target.value);
   };
 
@@ -62,4 +61,4 @@ function MoviesPage() {
   );
 }
 
-export { MoviesPage };
+export default MoviesPage;

@@ -1,7 +1,8 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
+import styles from './Skeleton.module.css';
 
-const CatalogMagic = ({
+const Skeleton = ({
   width = 1366,
   heading = { width: 140, height: 24 },
   row = 2,
@@ -64,25 +65,27 @@ const CatalogMagic = ({
   }
 
   return (
-    <ContentLoader
-      viewBox={`0 0 ${width} ${height}`}
-      width={width}
-      height={height}
-      {...props}
-    >
-      {heading && (
-        <rect
-          x={padding}
-          y={padding}
-          rx={0}
-          ry={0}
-          width={heading.width}
-          height={heading.height}
-        />
-      )}
-      {list}
-    </ContentLoader>
+    <div className={styles.container}>
+      <ContentLoader
+        viewBox={`0 0 ${width} ${height}`}
+        width={width}
+        height={height}
+        {...props}
+      >
+        {heading && (
+          <rect
+            x={padding}
+            y={padding}
+            rx={0}
+            ry={0}
+            width={heading.width}
+            height={heading.height}
+          />
+        )}
+        {list}
+      </ContentLoader>
+    </div>
   );
 };
 
-export default CatalogMagic;
+export default Skeleton;
